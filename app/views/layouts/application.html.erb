@@ -16,9 +16,10 @@
     <%= yield %>
 
     <% if user_signed_in? %>
-      <p><%= link_to "Log out", destroy_user_session_path, method: :delete %></p>
+      <p><%= button_to "Log out", destroy_user_session_path %></p>
     <% else %>
-      <p><%= link_to "Sign in", user_session_path %></p>
+      <p><%= button_to "Sign in", user_session_path %></p>
+      <p><%= button_to "Sign in with Google", user_google_omniauth_authorize_path %></p>
     <% end %>
   </body>
 </html>
