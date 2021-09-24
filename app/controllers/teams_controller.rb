@@ -4,10 +4,18 @@ class TeamsController < ApplicationController
     @team = Team.new      
   end
 
-  #def create
-    #if saves => reroute to Team show page 
-    #else => reload new_team form with validation error 
-  #end
+  def create
+    # new instance of Team with params from new_team form
+    @team = Team.new(name: params[:team][:name], goal: params[:team][:goal])
+
+    # if passes validations, redirect to teams
+    # else re-render form
+    if @team.save 
+      redirect_to teams_path
+    else 
+      render :new
+    end
+  end
 
   # private 
 
