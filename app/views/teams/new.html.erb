@@ -1,11 +1,8 @@
-<h1>Teams#new</h1>
-<p>Find me in app/views/teams/new.html.erb</p>
+<h1>Create a Team</h1>
 
- <%= form_for :team, @team, :url => { :action => "create" } do |f| %>
-    <%= label_tag (:name, "Team Name:") %>
-    <%= f.text_field :name %><br />
-    <%= label_tag (:goal, "Team Goal:") %>
-    <%= f.text_field :goal %><br />
+ <%= form_for @team, :url => { :action => "create" } do |f| %>
+    Team Name: <%= f.text_field :name %><br /><br />
+    Team Goal: <%= f.text_field :goal %><br /><br />
     <%= f.submit "Create Team" %>
 <% end %> 
 
