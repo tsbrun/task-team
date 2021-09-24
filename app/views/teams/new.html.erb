@@ -1,2 +1,16 @@
 <h1>Teams#new</h1>
 <p>Find me in app/views/teams/new.html.erb</p>
+
+ <%= form_for :team, @team, :url => { :action => "create" } do |f| %>
+    <%= label_tag (:name, "Team Name:") %>
+    <%= f.text_field :name %><br />
+    <%= label_tag (:goal, "Team Goal:") %>
+    <%= f.text_field :goal %><br />
+    <%= f.submit "Create Team" %>
+<% end %> 
+
+<%
+=begin%>
+  consider abstracting form into a partial 
+<%
+=end%>
