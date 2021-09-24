@@ -1,6 +1,16 @@
 <h1>Create a Team</h1>
 
  <%= form_for @team, :url => { :action => "create" } do |f| %>
+    <% if @team.errors.any? %>
+        <div class="form_errors">
+        <ul>
+            <% @team.errors.full_messages.each do |msg| %>
+            <li><%= `Error: #{msg}` %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
     Team Name: <%= f.text_field :name %><br /><br />
     Team Goal: <%= f.text_field :goal %><br /><br />
     <%= f.submit "Create Team" %>
