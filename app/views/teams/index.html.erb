@@ -1,1 +1,8 @@
 <h1>Your Teams</h1>
+
+<%
+=begin%>
+  Restrict access to teams the user is part of
+  Team.all.where team_leader equals current_user || team_members include current_user
+<%
+=end%>
