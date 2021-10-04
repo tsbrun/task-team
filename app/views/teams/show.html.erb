@@ -2,3 +2,13 @@
 
 <h2>Team Goal: <%= @team.goal %></h2>
 
+<h3>Your Lists</h3>
+
+<%
+=begin%>
+  @team.lists.each do |list|
+    list.title
+  end
+<%
+=end%>
+

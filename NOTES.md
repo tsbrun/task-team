@@ -36,3 +36,10 @@ I need to figure this out before proceeding.
 Upon creation of an instance of Team, automatically create an associated instance of List
    if @team.save 
       @team.create_list(name: `#{@team.name} List`)
+
+Create team
+Automatically create a default list 
+Route to "team page" that shows all of the team's associated lists 
+Default list should show
+
+=> Go from there
