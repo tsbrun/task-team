@@ -50,15 +50,19 @@ I've come to a realization. I'VE HAD MY MODELS AND ASSOCIATIONS WRONG ALL THIS T
 
 **USERS AND LISTS SHOULD BE ASSOCIATED THROUGH TASKS**
 
+Many-to-many relationship: many-users-to-many-lists through teams ?
+
 **User**
 
 - has_many :tasks
 - has_many :lists, :through ⇒ :tasks
+- belongs_to :team
 
 **List**
 
 - has_many :tasks
 - has_many :users, :through ⇒ :tasks
+- belongs_to :team
 
 **Task**
 
@@ -70,4 +74,27 @@ I've come to a realization. I'VE HAD MY MODELS AND ASSOCIATIONS WRONG ALL THIS T
 - has_many :users
 - has_many :lists
 
-I feel like an idiot. At least the build process will be much quicker this time around. 
+*facepalm* At least the build process will be much quicker this time around. 
+
+First task: edit models (see above) []
+
+Second task: new migrations []
+
+- `rails g migration AddTeamToUsers team:references`
+- `rails g model Task desc:string`
+- `rails g migration AddUserToTasks user:references`
+- `rails g migration AddListToTasks list:references`
+
+Third task: delete erroneous migrations []
+- Namely `add_user_to_list` 
+
+Fourth task: drop and reseed db []
+- create new rails task `db:reseed` (https://nithinbekal.com/posts/rake-db-reseed/)
+- run `bin/rails db:reseed`
+
+Fifth task: test new associations with seed data in console []
+
+Sixth task: tbd...
+
+**Stretch Features**
+- `rails g migration AddAdminToTeam admin:int` (since it's going to be a user_id -- i.e., first user associated with team) => for Team Leader/Admin feature
