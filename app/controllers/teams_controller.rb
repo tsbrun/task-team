@@ -25,9 +25,9 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
   end
 
-  # private 
+  private 
 
-  # def new_team_params 
-  #   params.require(:team).permit(:name, :goal)
-  # end
+  def new_team_params 
+    params.require(:team).permit(:name, :goal)
+  end
 end
