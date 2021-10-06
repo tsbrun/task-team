@@ -43,3 +43,31 @@ Route to "team page" that shows all of the team's associated lists
 Default list should show
 
 => Go from there
+
+*** WED OCT 6 ***
+
+I've come to a realization. I'VE HAD MY MODELS AND ASSOCIATIONS WRONG ALL THIS TIME. 
+
+**USERS AND LISTS SHOULD BE ASSOCIATED THROUGH TASKS**
+
+**User**
+
+- has_many :tasks
+- has_many :lists, :through ⇒ :tasks
+
+**List**
+
+- has_many :tasks
+- has_many :users, :through ⇒ :tasks
+
+**Task**
+
+- belongs_to :user
+- belongs_to :list
+
+**Team**
+
+- has_many :users
+- has_many :lists
+
+I feel like an idiot. At least the build process will be much quicker this time around. 
