@@ -5,7 +5,11 @@
         <div class="form_errors">
         <ul>
             <% @team.errors.full_messages.each do |msg| %>
-            <li><%= `Error: #{msg}` %></li>
+            <%
+=begin%>
+ <li><%= `Error: #{msg}` %></li> 
+<%
+=end%>
             <% end %>
         </ul>
         </div>

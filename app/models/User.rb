@@ -10,4 +10,7 @@ class User < ActiveRecord::Base
     user = User.where(email: data['email']).first 
     user 
   end
+
+  has_many :lists 
+  has_many :teams, :through => :lists 
 end

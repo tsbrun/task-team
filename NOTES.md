@@ -32,3 +32,14 @@ I need to figure this out before proceeding.
 
 [] Column on Team db table for :leader ??? Should point to the id of a specific user 
 [] Field to add Team Leader and Team Members => load @team.leader as: team_leader and @team.users as: team_members
+
+Upon creation of an instance of Team, automatically create an associated instance of List
+   if @team.save 
+      @team.create_list(name: `#{@team.name} List`)
+
+Create team
+Automatically create a default list 
+Route to "team page" that shows all of the team's associated lists 
+Default list should show
+
+=> Go from there
