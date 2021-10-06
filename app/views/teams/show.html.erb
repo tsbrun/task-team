@@ -4,11 +4,9 @@
 
 <h3>Your Lists</h3>
 
-<%
-=begin%>
-  @team.lists.each do |list|
-    list.title
-  end
-<%
-=end%>
+<ul>
+<% @team.lists.each do |list| %>
+  <li><%= list.title %></li>
+<% end %>
+</ul>
 
