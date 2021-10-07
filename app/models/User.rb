@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
   end
 
   has_many :tasks
-  has_many :lists, :through ⇒ :tasks
+  has_many :lists, through: :tasks
   belongs_to :team
 end
