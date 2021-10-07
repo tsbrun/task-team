@@ -7,6 +7,11 @@
 <ul>
 <% @team.lists.each do |list| %>
   <li><%= list.title %></li>
+  <ul>
+  <% list.tasks.each do |task| %>
+    <li><%= task.desc %></li>
+  <% end %>
+  </ul>
 <% end %>
 </ul>
 
