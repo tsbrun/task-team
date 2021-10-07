@@ -93,6 +93,11 @@ Fourth task: drop and reseed db [x]
 - run `bin/rails db:reseed`
 
 Fifth task: test new associations with seed data in console []
+- team.users << [add users]
+- team.lists << [add a list]
+- list.tasks << [add a task]
+- user.task << [ list.tasks.first ]
+- lists.users + users.lists [ demonstrate has_many_through relationship ]
 
 Sixth task: tbd...
 
