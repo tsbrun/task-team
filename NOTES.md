@@ -85,7 +85,7 @@ Second task: new migrations [x]
 - `rails g migration AddUserToTasks user:references`
 - `rails g migration AddListToTasks list:references`
 
-Third task: delete erroneous migrations []
+Third task: delete erroneous migrations [x]
 - Namely `add_user_to_list` 
 
 Fourth task: drop and reseed db []
