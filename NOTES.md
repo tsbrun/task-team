@@ -88,7 +88,7 @@ Second task: new migrations [x]
 Third task: delete erroneous migrations [x]
 - Namely `add_user_to_list` 
 
-Fourth task: drop and reseed db []
+Fourth task: drop and reseed db [x]
 - create new rails task `db:reseed` (https://nithinbekal.com/posts/rake-db-reseed/)
 - run `bin/rails db:reseed`
 
