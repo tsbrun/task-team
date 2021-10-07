@@ -43,3 +43,63 @@ Route to "team page" that shows all of the team's associated lists
 Default list should show
 
 => Go from there
+
+*** WED OCT 6 ***
+
+I've come to a realization. I'VE HAD MY MODELS AND ASSOCIATIONS WRONG ALL THIS TIME. 
+
+**USERS AND LISTS SHOULD BE ASSOCIATED THROUGH TASKS**
+
+Many-to-many relationship: many-users-to-many-lists through teams ?
+
+**User**
+
+- has_many :tasks
+- has_many :lists, :through ⇒ :tasks
+- belongs_to :team
+
+**List**
+
+- has_many :tasks
+- has_many :users, :through ⇒ :tasks
+- belongs_to :team
+
+**Task**
+
+- belongs_to :user
+- belongs_to :list
+
+**Team**
+
+- has_many :users
+- has_many :lists
+
+*facepalm* At least the build process will be much quicker this time around. 
+
+First task: edit models (see above) [x]
+
+Second task: new migrations [x]
+
+- `rails g migration AddTeamToUsers team:references`
+- `rails g model Task desc:string`
+- `rails g migration AddUserToTasks user:references`
+- `rails g migration AddListToTasks list:references`
+
+Third task: delete erroneous migrations [x]
+- Namely `add_user_to_list` 
+
+Fourth task: drop and reseed db [x]
+- create new rails task `db:reseed` (https://nithinbekal.com/posts/rake-db-reseed/)
+- run `bin/rails db:reseed`
+
+Fifth task: test new associations with seed data in console []
+- team.users << [add users]
+- team.lists << [add a list]
+- list.tasks << [add a task]
+- user.task << [ list.tasks.first ]
+- lists.users + users.lists [ demonstrate has_many_through relationship ]
+
+Sixth task: tbd...
+
+**Stretch Features**
+- `rails g migration AddAdminToTeam admin:int` (since it's going to be a user_id -- i.e., first user associated with team) => for Team Leader/Admin feature
