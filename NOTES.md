@@ -102,12 +102,15 @@ Fifth task: test new associations with seed data in console []
 Sixth task: make lists a nested resource [x]
 
 **Remaining MVP Features**
+NEW BRANCH: assign_user_to_task
 [] Assign a user to a task (drop-down menu) 
    [ demonstrate has_many_through relationship -> access users through associated list ]
+NEW BRANCH: update_and_delete
 [] Edit team
 [] Delete team
 [] Edit list
 [] Delete list
+NEW BRANCH: add_tasks
 [] Add task (w/o going to a new page)
 [] Edit task (w/o going to a new page)
 [] Delete task  
