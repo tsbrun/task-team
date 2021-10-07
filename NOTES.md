@@ -97,9 +97,23 @@ Fifth task: test new associations with seed data in console []
 - team.lists << [add a list]
 - list.tasks << [add a task]
 - user.task << [ list.tasks.first ]
-- lists.users + users.lists [ demonstrate has_many_through relationship ]
+- lists.users + users.lists 
 
-Sixth task: make lists a nested resource []
+Sixth task: make lists a nested resource [x]
+
+**Remaining MVP Features**
+[] Assign a user to a task (drop-down menu) 
+   [ demonstrate has_many_through relationship -> access users through associated list ]
+[] Edit team
+[] Delete team
+[] Edit list
+[] Delete list
+[] Add task (w/o going to a new page)
+[] Edit task (w/o going to a new page)
+[] Delete task  
 
 **Stretch Features**
-- `rails g migration AddAdminToTeam admin:int` (since it's going to be a user_id -- i.e., first user associated with team) => for Team Leader/Admin feature
+[] Add users to a team (through website, instead of backend)
+[] Add convenient links
+[] Add minimal styling
+[] `rails g migration AddAdminToTeam admin:int` (since it's going to be a user_id -- i.e., first user associated with team) => for Team Leader/Admin feature
