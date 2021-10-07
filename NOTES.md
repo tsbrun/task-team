@@ -99,7 +99,7 @@ Fifth task: test new associations with seed data in console []
 - user.task << [ list.tasks.first ]
 - lists.users + users.lists [ demonstrate has_many_through relationship ]
 
-Sixth task: tbd...
+Sixth task: make lists a nested resource []
 
 **Stretch Features**
 - `rails g migration AddAdminToTeam admin:int` (since it's going to be a user_id -- i.e., first user associated with team) => for Team Leader/Admin feature
