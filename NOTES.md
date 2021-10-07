@@ -78,7 +78,7 @@ Many-to-many relationship: many-users-to-many-lists through teams ?
 
 First task: edit models (see above) [x]
 
-Second task: new migrations []
+Second task: new migrations [x]
 
 - `rails g migration AddTeamToUsers team:references`
 - `rails g model Task desc:string`
