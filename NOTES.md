@@ -76,7 +76,7 @@ Many-to-many relationship: many-users-to-many-lists through teams ?
 
 *facepalm* At least the build process will be much quicker this time around. 
 
-First task: edit models (see above) []
+First task: edit models (see above) [x]
 
 Second task: new migrations []
 
