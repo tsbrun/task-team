@@ -1,12 +1,4 @@
 <%= form_for @list, :url => url do |f| %>
    <%= f.text_field :title %>
-    <% if @list.tasks %>
-        <h2>Edit Tasks</h2>
-        <ul>
-        <% @list.tasks.each do |t| %>
-            <li><%= t.desc %> - Assign Task: <%= collection_select(:task, :user_id, @list.team.users, :id, :user_name) %></li>
-        <% end %>
-        </ul>
-    <% end %>
    <%= f.submit %>
 <% end %>
