@@ -15,7 +15,10 @@ team.users.build([
     {user_name: 'editor101', first_name: 'Ed', last_name: 'Tor', email: 'edTor@yahoo.com', password: 'edTor'},
     {user_name: 'publisher101', first_name: 'Lisa', last_name: 'Agent', email: 'lizAgent', password: 'lizAgent'},
     {user_name: 'manager101', first_name: 'Sosha', last_name: 'Mann', email: 'soshaMann@yahoo.com', password: 'soshaMann'}
-]).save
+])
+
+# Persist team member data to db
+team.users.each { |user| user.save }
 
 # Create a team list
 team.lists.build(title: "Publish Book").save 
