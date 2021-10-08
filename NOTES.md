@@ -116,6 +116,7 @@ NEW BRANCH: add_tasks
 [] Delete task  
 
 **Stretch Features**
+[] team has_many :tasks, through: :lists 
 [] Add users to a team (through website, instead of backend)
 [] Add convenient links
 [] Add minimal styling
