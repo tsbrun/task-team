@@ -103,7 +103,7 @@ Sixth task: make lists a nested resource [x]
 
 **Remaining MVP Features**
 NEW BRANCH: assign_user_to_task
-[] Assign a user to a task (drop-down menu) 
+[x] Assign a user to a task (drop-down menu) 
    [ demonstrate has_many_through relationship -> access users through associated list ]
 NEW BRANCH: update_and_delete
 [] Edit team
@@ -121,3 +121,19 @@ NEW BRANCH: add_tasks
 [] Add convenient links
 [] Add minimal styling
 [] `rails g migration AddAdminToTeam admin:int` (since it's going to be a user_id -- i.e., first user associated with team) => for Team Leader/Admin feature
+
+collection_select(object, method, collection, value_method, text_method, options = {}, html_options = {})
+
+Drop-down list of users 
+
+object - :task 
+method - :user_id
+collection - @team.users
+value_method - :id
+text_method - :user_name
+
+How do you assign a task, though?
+
+Edit tasks on edit_list_path
+
+collection_select(:task, :user_id, @list.team.users, :id, :user_name)
