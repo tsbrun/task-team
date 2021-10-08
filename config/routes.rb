@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'tasks/edit'
-  get 'tasks/update'
   # get 'teams/new', as: 'new_team'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "application#index"
@@ -8,5 +6,6 @@ Rails.application.routes.draw do
 
   resources :teams, only: [:index, :new, :create, :show] do 
     resources :lists, only: [:new, :create, :edit, :update]
+    resources :tasks, only: [:edit, :update]
   end
 end
