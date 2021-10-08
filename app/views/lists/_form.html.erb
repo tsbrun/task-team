@@ -1,6 +1,5 @@
 <%= form_for @list, :url => url do |f| %>
    <%= f.text_field :title %>
-
     <% if @list.tasks %>
         <h2>Edit Tasks</h2>
         <ul>
@@ -9,6 +8,5 @@
         <% end %>
         </ul>
     <% end %>
-
-    <%= f.submit %>
+   <%= f.submit %>
 <% end %>
