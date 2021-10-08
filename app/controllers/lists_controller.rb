@@ -12,4 +12,5 @@ class ListsController < ApplicationController
             render :new
         end
     end
+
 end

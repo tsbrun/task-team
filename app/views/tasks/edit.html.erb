@@ -1,0 +1,8 @@
+<%= form_for @task, :url => { :action => "update" } do |f| %>
+    <h2>Edit: </h2><%= f.text_field :desc %>
+
+    <h3>Assign Task to Team Member</h3>
+    <%= f.collection_select(:user_id, @team_members, :id, :user_name) %>
+
+    <%= f.submit %>
+<% end %>

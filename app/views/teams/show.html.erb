@@ -2,14 +2,20 @@
 
 <h2>Team Goal: <%= @team.goal %></h2>
 
-<h3>Your Lists</h3>
+<h2>Team Members</h2>
+<ul>
+<% @team.users.each do |user| %>
+  <li><%= "#{user.first_name} #{user.last_name}" %></li>
+<% end %>
+</ul>
 
+<h3>Your Lists</h3>
 <ul>
 <% @team.lists.each do |list| %>
-  <li><%= list.title %></li>
+  <li><%= list.title %> - <%= link_to "Edit", edit_team_list_path(list) %></li> 
   <ul>
   <% list.tasks.each do |task| %>
-    <li><%= task.desc %></li>
+    <li><%= "#{task.desc} (#{task.user ? task.user.user_name : "unassigned"})" %> - <%= link_to "Edit", edit_team_task_path(task) %></li>
   <% end %>
   </ul>
 <% end %>
