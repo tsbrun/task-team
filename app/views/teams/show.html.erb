@@ -12,7 +12,7 @@
 <h3>Your Lists</h3>
 <ul>
 <% @team.lists.each do |list| %>
-  <li><%= list.title %> - <%= link_to "Edit", edit_team_list_path(list) %></li> 
+  <li><%= list.title %> - <%= link_to "Edit", edit_team_list_path(list) %> / <%= link_to "Delete", delete_list_path(@team, list), :method => "delete" %></li> 
   <ul>
   <% list.tasks.each do |task| %>
     <li><%= "#{task.desc} (#{task.user ? task.user.user_name : "unassigned"})" %> - <%= link_to "Edit", edit_team_task_path(task) %></li>
