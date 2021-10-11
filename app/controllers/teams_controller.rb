@@ -28,6 +28,12 @@ class TeamsController < ApplicationController
   def destroy
     team = Team.find(params[:id])
 
+    # unassociate team_members so user accounts don't have to be deleted
+    team.users.each do |user|
+      user.team_id = nil 
+      user.save
+    end
+
     if team.destroy 
       flash[:success] = "Successfully deleted team."
       reroute_to root_path
