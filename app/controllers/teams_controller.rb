@@ -25,6 +25,17 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
   end
 
+  def destroy
+    team = Team.find(params[:id])
+
+    if team.destroy 
+      flash[:success] = "Successfully deleted team."
+      reroute_to root_path
+    else
+      flash[:unsuccessful] = "Failed to delete team."
+    end
+  end
+
   private 
 
   def new_team_params 
