@@ -36,7 +36,7 @@ class TeamsController < ApplicationController
 
     if team.destroy 
       flash[:success] = "Successfully deleted team."
-      reroute_to root_path
+      redirect_to root_path
     else
       flash[:unsuccessful] = "Failed to delete team."
     end
