@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :tasks, only: [:edit, :update]
   end
 
+  delete "/teams/:team_id/tasks/:id" => "tasks#destroy", as: :delete_task
   delete "/teams/:id" => "teams#destroy", as: :delete_team
   delete "/teams/:team_id/lists/:id" => "lists#destroy", as: :delete_list
 end
