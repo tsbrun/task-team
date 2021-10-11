@@ -1,4 +1,17 @@
 class TasksController < ApplicationController
+  def new 
+    @task = Task.find(params[:id])
+  end
+
+  def create
+    task = Task.new(task_params)
+    if task.save 
+      redirect_to team_path(task.list_id.team_id)
+    else
+      render :new
+    end
+  end
+
   def edit
     @task = Task.find(params[:id])
     @team_members = @task.list.team.users
