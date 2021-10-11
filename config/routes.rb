@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root "application#index"
   devise_for :users, :controllers => { registrations: 'registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  resources :teams, only: [:index, :new, :create, :show] do 
+  resources :teams, only: [:index, :new, :create, :show, :edit, :update] do 
     resources :lists, only: [:new, :create, :edit, :update]
     resources :tasks, only: [:edit, :update]
   end
