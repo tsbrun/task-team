@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :teams, only: [:index, :new, :create, :show, :edit, :update] do 
     resources :lists, only: [:new, :create, :edit, :update]
-    resources :tasks, only: [:edit, :update]
+    resources :tasks, only: [:new, :create, :edit, :update]
   end
 
   delete "/teams/:team_id/tasks/:id" => "tasks#destroy", as: :delete_task
