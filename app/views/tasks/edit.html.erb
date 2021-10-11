@@ -1,8 +1,3 @@
-<%= form_for @task, :url => { :action => "update" } do |f| %>
-    <h2>Edit: </h2><%= f.text_field :desc %>
+<h1>Edit Task</h1>
 
-    <h3>Assign Task to Team Member</h3>
-    <%= f.collection_select(:user_id, @team_members, :id, :user_name) %>
-
-    <%= f.submit %> or <%= link_to "Delete Task", delete_task_path(@task), :method => "delete" %>
-<% end %>
+<%= render partial: 'form', locals: { task: @task, url: url_for(:controller => 'tasks', :action => 'update') } %>
