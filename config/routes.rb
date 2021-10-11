@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   root "application#index"
   devise_for :users, :controllers => { registrations: 'registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  resources :teams, only: [:index, :new, :create, :show] do 
+  resources :teams, only: [:index, :new, :create, :show, :edit, :update] do 
     resources :lists, only: [:new, :create, :edit, :update]
-    resources :tasks, only: [:edit, :update]
+    resources :tasks, only: [:new, :create, :edit, :update]
   end
+
+  delete "/teams/:team_id/tasks/:id" => "tasks#destroy", as: :delete_task
+  delete "/teams/:id" => "teams#destroy", as: :delete_team
+  delete "/teams/:team_id/lists/:id" => "lists#destroy", as: :delete_list
 end

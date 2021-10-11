@@ -105,35 +105,16 @@ Sixth task: make lists a nested resource [x]
 NEW BRANCH: assign_user_to_task
 [x] Assign a user to a task (drop-down menu) 
    [ demonstrate has_many_through relationship -> access users through associated list ]
-NEW BRANCH: update_and_delete
-[] Edit team
-[] Delete team
-[] Edit list
-[] Delete list
-NEW BRANCH: add_tasks
-[] Add task (w/o going to a new page)
-[] Edit task (w/o going to a new page)
-[] Delete task  
 
-**Stretch Features**
-[] team has_many :tasks, through: :lists 
-[] Add users to a team (through website, instead of backend)
-[] Add convenient links
-[] Add minimal styling
-[] `rails g migration AddAdminToTeam admin:int` (since it's going to be a user_id -- i.e., first user associated with team) => for Team Leader/Admin feature
+NEW BRANCH: mvp_finishing_touches (30 mins or less...)
+[x] Update + [x] delete teams
+[x] Update + [x] delete lists
+[x] Create + [x] delete tasks 
 
-collection_select(object, method, collection, value_method, text_method, options = {}, html_options = {})
-
-Drop-down list of users 
-
-object - :task 
-method - :user_id
-collection - @team.users
-value_method - :id
-text_method - :user_name
-
-How do you assign a task, though?
-
-Edit tasks on edit_list_path
-
-collection_select(:task, :user_id, @list.team.users, :id, :user_name)
+**Stretch Features** 
+[x] team has_many :tasks, through: :lists 
+[] Add users to a team (<10 mins)
+[] Add convenient links (<5 mins>)
+[] Add minimal styling (<20 mins)
+[] Display Team Leader / Admin (<10 mins)
+   `rails g migration AddAdminToTeam admin:int` (since it's going to be a user_id -- i.e., first user associated with team) => for Team Leader/Admin feature
