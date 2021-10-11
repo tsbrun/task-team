@@ -1,5 +1,5 @@
 <h1><%= @team.name %></h1>
-<%= link_to "Delete Team", delete_team_path(@team), :method => "delete" %>
+<%= link_to "Edit", edit_team_path(@team) %> / <%= link_to "Delete Team", delete_team_path(@team), :method => "delete" %>
 
 <h2>Team Goal: <%= @team.goal %></h2>
 
