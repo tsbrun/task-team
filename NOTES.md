@@ -107,9 +107,9 @@ NEW BRANCH: assign_user_to_task
    [ demonstrate has_many_through relationship -> access users through associated list ]
 
 NEW BRANCH: mvp_finishing_touches (30 mins or less...)
-[] Update + delete teams
-[] Update + delete lists
-[] Create + delete tasks 
+[x] Update + [x] delete teams
+[x] Update + [x] delete lists
+[x] Create + [x] delete tasks 
 
 **Stretch Features** 
 [x] team has_many :tasks, through: :lists 
