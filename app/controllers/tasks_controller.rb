@@ -18,7 +18,7 @@ class TasksController < ApplicationController
     list = List.find(task.list_id)
     if task.destroy 
       flash[:success] = "Successfully deleted task."
-      redirect_to team_lists(list.team_id)
+      redirect_to team_path(list.team_id)
     else
       flash[:unsuccessful] = "Failed to delete task."
     end
