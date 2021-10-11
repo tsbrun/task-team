@@ -3,6 +3,6 @@ class Team < ApplicationRecord
     validates :goal, presence: true
 
     has_many :users
-    has_many :lists
+    has_many :lists, dependent: :destroy
     has_many :tasks, through: :lists
 end
