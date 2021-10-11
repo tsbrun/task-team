@@ -1,8 +1,17 @@
 <%= form_for @task, :url => url do |f| %>
     <h2>Description: </h2><%= f.text_field :desc %>
 
+    <% if !@task.id %>
+    <h3>Assign Task to List</h3>
+    <%= f.collection_select(:list_id, @team.lists, :id, :title) %>
+
+    <%= f.submit %>
+    <% end %>
+
+    <% if @task.id %>
     <h3>Assign Task to Team Member</h3>
     <%= f.collection_select(:user_id, @team_members, :id, :user_name) %>
 
     <%= f.submit %> or <%= link_to "Delete Task", delete_task_path(@task), :method => "delete" %>
+    <% end %>
 <% end %>
