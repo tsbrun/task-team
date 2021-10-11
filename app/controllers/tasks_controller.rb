@@ -13,6 +13,17 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    task = Task.find(params[:id])
+    list = List.find(task.list_id)
+    if task.destroy 
+      flash[:success] = "Successfully deleted task."
+      redirect_to team_lists(list.team_id)
+    else
+      flash[:unsuccessful] = "Failed to delete task."
+    end
+  end
+
   private 
 
   def task_params
