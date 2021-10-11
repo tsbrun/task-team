@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   def new 
-    @task = Task.find(params[:id])
+    @team = Team.find(params[:team_id])
+    @task = Task.new
   end
 
   def create
