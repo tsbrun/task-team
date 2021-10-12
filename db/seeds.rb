@@ -29,3 +29,18 @@ list.tasks.build([
     {desc: "Coordinate shipment of hardcopies to bookstore"},
     {desc: "Tease new book on Instagram and Twitter"}
 ]).each { |task| task.save }
+
+# create second team
+team = Team.create(name: 'Grocery Night Shift', goal: 'n/a')
+team.users.build([
+    {user_name: 'stocker', first_name: 'Jeff', last_name: 'Smith', email: 'jeffsmith@gmail.com', password: 'stockerjeff'},
+    {user_name: 'cashier', first_name: 'Cindy', last_name: 'Simpson', email: 'cindysimpson@gmail.com', password: 'cashiercindy'},
+    {user_name: 'janitor', first_name: 'Bob', last_name: 'Reynolds', email: 'bobreynolds@gmail.com', password: 'janitorbob'}
+]).each { |user| user.save }
+team.lists.build(title: 'Closing Time').save 
+list = team.lists.first 
+list.tasks.build([
+    {desc: 'Restock milk freezer'},
+    {desc: 'Count cash in register'},
+    {desc: 'Mop floors'}
+]).each { |task| task.save }
