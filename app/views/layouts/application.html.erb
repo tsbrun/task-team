@@ -15,19 +15,22 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <div class="pure-menu-horizontal">
+    <% if user_signed_in? %>
     <ul class="pure-menu-list">
       <li class="pure-menu-item">
         <%= link_to "Your Team", team_path(current_user.team) %>
       </li>
     </ul>
     </div>
+    <% end %>
     <%= yield %>
 
+    <br />
     <% if user_signed_in? %>
-      <p><%= link_to "Log out", destroy_user_session_path, class: "pure-button pure-button-primary" %></p>
+      <%= link_to "Log out", { controller: "devise/sessions", action: "destroy"}, method: :delete, class: "pure-button pure-button-primary" %>
     <% else %>
-      <p><%= button_to "Sign in", user_session_path, class: "pure-button pure-button-primary" %></p>
-      <p><%= button_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: "pure-button pure-button-primary" %></p>
+      <%= button_to "Sign in", user_session_path, class: "pure-button pure-button-primary" %><br />
+      <%= button_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: "pure-button pure-button-primary" %>
     <% end %>
   </body>
 </html>
