@@ -1,15 +1,11 @@
 class TeamsController < ApplicationController
   def new
-    # new Team model for new_team form
     @team = Team.new      
   end
 
   def create
-    # new instance of Team with params from new_team form
     @team = Team.new(name: params[:team][:name], goal: params[:team][:goal])
 
-    # if passes validations, redirect to teams
-    # else re-render form
     if @team.save
       @team.users << current_user
       redirect_to team_path(@team)
@@ -39,11 +35,7 @@ class TeamsController < ApplicationController
   def destroy
     team = Team.find(params[:id])
 
-    # unassociate team_members so user accounts don't have to be deleted
-    team.users.each do |user|
-      user.team_id = nil 
-      user.save
-    end
+    team.remove_team_members
 
     if team.destroy 
       flash[:success] = "Successfully deleted team."
