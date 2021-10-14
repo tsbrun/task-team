@@ -11,11 +11,8 @@ class TeamsController < ApplicationController
     # if passes validations, redirect to teams
     # else re-render form
     if @team.save
-      if @team.lists.create(title: "#{@team.name} List")
-        redirect_to team_path(@team)
-      else
-        render :new
-      end
+      @team.users << current_user
+      redirect_to team_path(@team)
     else 
       render :new
     end

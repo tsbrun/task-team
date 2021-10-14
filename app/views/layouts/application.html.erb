@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -16,10 +17,10 @@
     <%= yield %>
 
     <% if user_signed_in? %>
-      <p><%= link_to "Log out", destroy_user_session_path, method: :delete %></p>
+      <p><%= link_to "Log out", { controller: "devise/sessions", action: "destroy" }, class: "pure-button pure-button-primary" %></p>
     <% else %>
-      <p><%= button_to "Sign in", user_session_path %></p>
-      <p><%= button_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %></p>
+      <p><%= button_to "Sign in", user_session_path, class: "pure-button pure-button-primary" %></p>
+      <p><%= button_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: "pure-button pure-button-primary" %></p>
     <% end %>
   </body>
 </html>
