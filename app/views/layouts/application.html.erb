@@ -15,14 +15,17 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <div class="pure-menu-horizontal">
-    <% if user_signed_in? %>
     <ul class="pure-menu-list">
       <li class="pure-menu-item">
+        <% if user_signed_in? && current_user.team %>
         <%= link_to "Your Team", team_path(current_user.team) %>
+        <% elsif user_signed_in? && !current_user.team %>
+        <%= link_to "Create Team", new_team_path %>
+        <% end %>
       </li>
     </ul>
     </div>
-    <% end %>
+
     <%= yield %>
 
     <br />
