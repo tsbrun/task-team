@@ -28,7 +28,7 @@
 
     <%= yield %>
 
-    <br />
+    <br /><br />
     <% if user_signed_in? %>
       <%= link_to "Log out", { controller: "devise/sessions", action: "destroy"}, method: :delete, class: "pure-button pure-button-primary" %>
     <% else %>
